@@ -136,11 +136,11 @@ echo -e "\e[35m
 ╚═╝░░╚═╝░░╚═╝░░  ╚═╝╚═╝░░╚══╝╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚══════╝╚══════╝\n\e[0m"
 
 echo -e "\033[1;35m"
-git clone https://github.com/Azami19/CuriosityBot-MD1.git
+git clone https://github.com/ZycryxCreative/zycryx-whatsapp-groups-bot.git
 echo -e "\033[01;32m\033[01m✅ La clonación se ha descargado e instalado correctamente.\n\033[0m"
 
 echo -e "\033[01;32m\033[01m🟢 Cambiando al directorio del repositorio!!\n\033[0m" 
-cd CuriosityBot-MD1
+cd zycryx-whatsapp-groups-bot
 
 echo -e "\e[36m
 █░█ █▀█ █▀▄ ▄▀█ ▀█▀ █▀▀   █▄█ ▄▀█ █▀█ █▄░█
