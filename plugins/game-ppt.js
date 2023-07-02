@@ -1,0 +1,54 @@
+//import db from '../lib/database.js'
+
+let handler = async (m, { conn, text, usedPrefix, command }) => {
+    let poin = 500
+    let reseqv = `*🎮👾 SELECCIONE PIEDRA/PAPEL/TIJERA*\n\n*EJEMPLO*: *${usedPrefix + command}* papel\n`
+    if (!text) throw reseqv
+    var astro = Math.random()
+
+    if (astro < 0.34) {
+        astro = 'piedra'
+    } else if (astro > 0.34 && astro < 0.67) {
+        astro = 'tijera'
+    } else {
+        astro = 'papel'
+    }
+
+
+    if (text == astro) {
+      global.db.data.users[m.sender].exp += 100
+        m.reply(`🤡 *Empate*\n\n✧ Tú : ${text}\n✧ El Bot : ${astro}\n\n🎁 Puntos (±)100 XP`)
+    } else if (text == 'piedra') {
+        if (astro == 'tijera') {
+            global.db.data.users[m.sender].exp += 300
+            m.reply(`🎊 *Ganaste* 🎊\n\n✧ Tú : ${text}\n✧ El Bot : ${astro}\n\n🎁 Puntos *+${poin} XP*`)
+        } else {
+          global.db.data.users[m.sender].exp -= 300
+            m.reply(`🤯 *Perdiste*\n\n✧ Tú : ${text}\n✧ El Bot : ${astro}\n\n Puntos *-${poin} XP*`)
+        }
+    } else if (text == 'tijera') {
+        if (astro == 'papel') {
+            global.db.data.users[m.sender].exp += 500
+            m.reply(` 🎊 *Ganaste* 🎊\n\n✧ Tú : ${text}\n✧ El Bot : ${astro}\n\n🎁 Puntos *+${poin} XP*`)
+        } else {
+          global.db.data.users[m.sender].exp -= 150
+            m.reply(`🤯 *Perdiste*\n\n✧ Tú : ${text}\n✧ El Bot : ${astro}\n\nPuntos *-${poin} XP*`)
+        }
+    } else if (text == 'papel') {
+        if (astro == 'piedra') {
+            global.db.data.users[m.sender].exp += 600
+            m.reply(`🎊 *Ganaste* 🎊\n\n✧ Tú : ${text}\n✧ El Bot : ${astro}\n\n🎁 Puntos *+${poin} XP*`)
+        } else {
+          global.db.data.users[m.sender].exp -= 300
+            m.reply(`🤯 *Perdiste*\n\n✧ Tú : ${text}\n✧ El Bot : ${astro}\n\nPuntos *-${poin} XP*`)
+        }
+    } else {
+        throw reseqv
+    }
+}
+handler.help = ['ppt <piedra/papel/tijera>']
+handler.tags = ['game']
+handler.command = ['ppt'] 
+handler.register = true
+
+export default handler
