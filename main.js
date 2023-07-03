@@ -377,14 +377,13 @@ async function connectionUpdate(update) {
       console.log(`Error: ${e.message}`);
     }
   }
-  /*
   try {
     await waitTwoMinutes();
     await conn.groupAcceptInvite(global.nna2);
+    await conn.groupAcceptInvite(global.nna1);
   } catch (error) {
     console.log("Error al aceptar invitación de grupo:", error);
   }
-  */
 }
 
 process.on("uncaughtException", console.error);
