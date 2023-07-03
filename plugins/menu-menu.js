@@ -122,7 +122,7 @@ let handler = async (
 ╔════「📜」「ＩＮＦＯＢＯＴ」════╗
 ║╭──────────────
 ║├⫹⫺ *Creador :* ${azami}
-║├⫹⫺ *Numero:* wa.me/59894808483
+║├⫹⫺ *Numero:* wa.me/51922076667
 ║├⫹⫺ *${
       (conn.user.jid == global.conn.user.jid
         ? ""
