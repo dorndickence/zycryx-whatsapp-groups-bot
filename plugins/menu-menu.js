@@ -55,8 +55,8 @@ let handler = async (
           vcard: `BEGIN:VCARD\nVERSION:3.0\nN:XL;${wm},;;;\nFN:${wm},\nitem1.TEL;waid=${
             m.sender.split("@")[0]
           }:${m.sender.split("@")[0]}\nitem1.X-ABLabell:Ponsel\nEND:VCARD`,
-          jpegThumbnail: fs.readFileSync("./storage/menus/Menu3.jpg"),
-          thumbnail: fs.readFileSync("./storage/menus/Menu3.jpg"),
+          jpegThumbnail: fs.readFileSync("./storage/menus/Menu1.jpg"),
+          thumbnail: fs.readFileSync("./storage/menus/Menu1.jpg"),
           sendEphemeral: true,
         },
       },
@@ -109,37 +109,37 @@ let handler = async (
     };
     await conn.reply(m.chat, "*Enviando el menu . . .*", ftrol);
     m.react("🚀");
-    let menu = `╔═══[ ＵＳＵＡＲＩＯＳ ]═══╗
+    let menu = `╔════[👤][ ＵＳＵＡＲＩＯＳ ]════╗
 ║╭──────────────
 ║├⫹⫺ *Nombre :* ${name}
 ║├⫹⫺ *Limite :* ${diamond}
 ║├⫹⫺ *Nivel :* ${level}
-〬║├⫹⫺ *Rango :* ${role}
+║├⫹⫺ *Rango :* ${role}
 ║├⫹⫺ *Exp :* ${exp}
 ║╰──────────────
-╚══════════════════⋆
+╚═══════════════════⋆
 
-╔═══[ ＩＮＦＯＢＯＴ ]═══╗
+╔════「📜」「ＩＮＦＯＢＯＴ」════╗
 ║╭──────────────
-║├⫹⫺ *Creador :* Julius Sauco
-║├⫹⫺ *Numero:* wa.me/51955715506
+║├⫹⫺ *Creador :* ${azami}
+║├⫹⫺ *Numero:* wa.me/59894808483
 ║├⫹⫺ *${
       (conn.user.jid == global.conn.user.jid
         ? ""
         : `Jadibot de :* https://wa.me/${global.conn.user.jid.split`@`[0]}`) ||
-      "Bot Ofc :* wa.me/904354571"
+      "Bot Ofc :* wa.me/51904354571"
     }
 ║├⫹⫺ *Prefix :* ${usedPrefix}
 ║├⫹⫺ *Tiempo Activo:* ${uptime}
 ║├⫹⫺ *Registrado :* ${rtotalreg} de ${totalreg} usuarios
 ║╰────────────── 
-╚══════════════════⋆
+╚═══════════════════⋆
 
-╔═════「 ＨＯＹ 」════╗
-║⫹⫺ *Fecha :* ${date}
-〬╚═════ ≪ •❈• ≫ ═════╝
+╔════「⌚」「ＨＯＹ」═══╗
+║ႌ〬⫹⫺ *Fecha :* ${date}
+〬╚════ ≪ •❈• ≫ ════╝
 
-〬╔══「 I N F O R M A C I Ó N 」═╗
+〬╔══「📜」「I N F O R M A C I Ó N」═╗
 〬║ႌ〬⫹⫺ ${usedPrefix}estado
 ║ႌ〬⫹⫺ ${usedPrefix}owner
 〬║ႌ〬⫹⫺ ${usedPrefix}grouplist
@@ -152,7 +152,7 @@ let handler = async (
 ║ႌ〬⫹⫺ ${usedPrefix}bot
 〬╚════ ≪ •❈• ≫ ════╝
 
-╔══「  J A D I B O T 」═╗
+╔══「🤖」「J A D I B O T」═╗
 ║ႌ〬⫹⫺ ${usedPrefix}Serbot 
 ║ႌ〬⫹⫺ ${usedPrefix}jadibot
 ║ႌ〬⫹⫺ ${usedPrefix}bots
@@ -160,7 +160,7 @@ let handler = async (
 ║ႌ〬⫹⫺ ${usedPrefix}stop
 〬╚════ ≪ •❈• ≫ ════╝
 
-╔══「 D E S C A R G A S 」═╗
+╔══「📂」「D E S C A R G A S」═╗
 ║ႌ〬⫹⫺ ${usedPrefix}play
 ║ႌ〬⫹⫺ ${usedPrefix}play2
 ║ႌ〬⫹⫺ ${usedPrefix}yta
@@ -174,12 +174,12 @@ let handler = async (
 ║ႌ〬⫹⫺ ${usedPrefix}mediafire
 〬╚════ ≪ •❈• ≫ ════╝
 
-╔══「 B U S C A D O R E S 」═╗
+╔══「🔎」「B U S C A D O R E S」═╗
 ║ႌ〬⫹⫺ ${usedPrefix}google
 ║ႌ〬⫹⫺ ${usedPrefix}yts
 〬╚════ ≪ •❈• ≫ ════╝
 
-╔══「 C O N V E R T I D O R E S 」═╗
+╔══「⚙️」「C O N V E R T I D O R E S」═╗
 ║ႌ〬⫹⫺ ${usedPrefix}toimg
 ║ႌ〬⫹⫺ ${usedPrefix}tomp3
 ║ႌ〬⫹⫺ ${usedPrefix}toptt
@@ -188,7 +188,7 @@ let handler = async (
 ║ႌ〬⫹⫺ ${usedPrefix}tts
 〬╚════ ≪ •❈• ≫ ════╝
 
-╔══「 A U D I O S   E F E C T O S 」═╗
+╔══「🎵」「E F E C T O S」═╗
 ║ႌ〬⫹⫺ ${usedPrefix}bass
 ║ႌ〬⫹⫺ ${usedPrefix}blown
 ║ႌ〬⫹⫺ ${usedPrefix}deep
@@ -205,7 +205,7 @@ let handler = async (
 ║ႌ〬⫹⫺ ${usedPrefix}chipmunk
 〬╚════ ≪ •❈• ≫ ════╝
 
-╔══「 H E R R A M I E N T A S 」═╗
+╔══「🔧」「H E R R A M I E N T A S」═╗
 ║ႌ〬⫹⫺ ${usedPrefix}acortar
 ║ႌ〬⫹⫺ ${usedPrefix}qr
 ║ႌ〬⫹⫺ ${usedPrefix}delete
@@ -213,7 +213,7 @@ let handler = async (
 ║ႌ〬⫹⫺ ${usedPrefix}styletext
 〬╚════ ≪ •❈• ≫ ════╝
 
-╔══「 J U E G O S 」═╗
+╔══「🎮」「J U E G O S 」═╗
 ║ႌ〬⫹⫺ ${usedPrefix}mates
 ║ႌ〬⫹⫺ ${usedPrefix}math
 ║ႌ〬⫹⫺ ${usedPrefix}simi
@@ -231,7 +231,7 @@ let handler = async (
 ║ႌ〬⫹⫺ ${usedPrefix}dado
 〬╚════ ≪ •❈• ≫ ════╝
 
-╔══「 G R U P O S 」═╗
+╔══「👥」「 G R U P O S 」═╗
 ║ႌ〬⫹⫺ ${usedPrefix}grupo
 ║ႌ〬⫹⫺ ${usedPrefix}kick
 ║ႌ〬⫹⫺ ${usedPrefix}add
@@ -248,7 +248,7 @@ let handler = async (
 ║ႌ〬⫹⫺ ${usedPrefix}unbanchat
 〬╚════ ≪ •❈• ≫ ════╝
 
-╔══「 E N A B L E / D I S A B L E 」═╗
+╔══「⚙️」「 C O N F I G 」═╗
 ║ႌ〬⫹⫺ ${usedPrefix}enable welcome
 ║ႌ〬⫹⫺ ${usedPrefix}disable welcome
 ║ႌ〬⫹⫺ ${usedPrefix}enable public
@@ -269,7 +269,7 @@ let handler = async (
 ║ႌ〬⫹⫺ ${usedPrefix}disable gconly
 〬╚════ ≪ •❈• ≫ ════╝
 
-╔══「 R P G 」═╗
+╔══「🎭」「 R P G 」═╗
 ║ႌ〬⫹⫺ ${usedPrefix}minar
 ║ႌ〬⫹⫺ ${usedPrefix}minar3
 ║ႌ〬⫹⫺ ${usedPrefix}minardiamantes
@@ -285,12 +285,12 @@ let handler = async (
 ║ႌ〬⫹⫺ ${usedPrefix}levelup
 〬╚════ ≪ •❈• ≫ ════╝
 
-╔══「 STICKER 」═╗
+╔══「👽」「 STICKER 」═╗
 ║ႌ〬⫹⫺ ${usedPrefix}s
 ║ႌ〬⫹⫺ ${usedPrefix}wm
 〬╚════ ≪ •❈• ≫ ════╝
 
-╔══「 O W N E R 」═╗
+╔══「☠️」「 O W N E R 」═╗
 ║ႌ〬⫹⫺ ${usedPrefix}update
 ║ႌ〬⫹⫺ ${usedPrefix}restart
 ║ႌ〬⫹⫺ ${usedPrefix}autoadmin
@@ -319,7 +319,7 @@ let handler = async (
         "En breve se enviará el menú...",
         "374160lMCurS",
         "356228pujvOS",
-        "./storage/menus/Menu3.jpg",
+        "./storage/menus/Menu1.jpg",
         "1019845zOpQQK",
         "pdf",
         "chat",
