@@ -5,6 +5,7 @@ import { createRequire } from "module"; // Bring in the ability to create the 'r
 import path, { join } from "path";
 import { fileURLToPath, pathToFileURL } from "url";
 import { platform } from "process";
+
 global.__filename = function filename(
   pathURL = import.meta.url,
   rmPrefix = platform !== "win32"
@@ -15,9 +16,11 @@ global.__filename = function filename(
       : pathURL
     : pathToFileURL(pathURL).toString();
 };
+
 global.__dirname = function dirname(pathURL) {
   return path.dirname(global.__filename(pathURL, true));
 };
+
 global.__require = function require(dir = import.meta.url) {
   return createRequire(dir);
 };
@@ -48,6 +51,7 @@ import P from "pino";
 import { makeWASocket, protoType, serialize } from "./lib/simple.js";
 import { Low, JSONFile } from "lowdb";
 import { mongoDB, mongoDBV2 } from "./lib/mongoDB.js";
+
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const { DisconnectReason, useMultiFileAuthState } = await import(
   "@adiwajshing/baileys"
@@ -55,8 +59,10 @@ const { DisconnectReason, useMultiFileAuthState } = await import(
 const { CONNECTING } = ws;
 const { chain } = lodash;
 const PORT = process.env.PORT || process.env.SERVER_PORT || 3000;
+
 protoType();
 serialize();
+
 global.__filename = function filename(
   pathURL = import.meta.url,
   rmPrefix = platform !== "win32"
@@ -67,12 +73,15 @@ global.__filename = function filename(
       : pathURL
     : pathToFileURL(pathURL).toString();
 };
+
 global.__dirname = function dirname(pathURL) {
   return path.dirname(global.__filename(pathURL, true));
 };
+
 global.__require = function require(dir = import.meta.url) {
   return createRequire(dir);
 };
+
 global.API = (name, path = "/", query = {}, apikeyqueryname) =>
   (name in global.APIs ? global.APIs[name] : name) +
   path +
@@ -92,8 +101,11 @@ global.API = (name, path = "/", query = {}, apikeyqueryname) =>
         })
       )
     : "");
+
 global.timestamp = { start: new Date() };
+
 const __dirname = global.__dirname(import.meta.url);
+
 global.opts = new Object(
   yargs(process.argv.slice(2)).exitProcess(false).parse()
 );
@@ -105,6 +117,7 @@ global.prefix = new RegExp(
     ) +
     "]"
 );
+
 global.db = new Low(
   /https?:\/\//.test(opts["db"] || "")
     ? new cloudDBAdapter(opts["db"])
@@ -112,6 +125,7 @@ global.db = new Low(
 );
 
 global.DATABASE = global.db; // Backwards Compatibility
+
 global.loadDatabase = async function loadDatabase() {
   if (global.db.READ)
     return new Promise((resolve) =>
@@ -139,10 +153,12 @@ global.loadDatabase = async function loadDatabase() {
   };
   global.db.chain = chain(global.db.data);
 };
+
 loadDatabase();
 global.authFile = join(__dirname, `sessions/`);
 global.authFileRespald = join(__dirname, `sesionRespaldo/`);
 global.temp = join(__dirname, "tmp");
+
 if (!existsSync(jadibts)) {
   mkdirSync(jadibts);
   console.log("Directorio jadibts creado exitosamente");
@@ -155,6 +171,7 @@ if (!existsSync(temp)) {
   mkdirSync(temp);
   console.log("Directorio tmp creado exitosamente");
 }
+
 const { state, saveState, saveCreds } = await useMultiFileAuthState(
   global.authFile
 );
@@ -206,7 +223,7 @@ function actualizarNumero() {
         path.join(__dirname, "sesionRespaldo/creds.json")
       );
       const numero = JSON.parse(archivoCreds).me.id.split(":")[0];
-      return `global.animxscans = [['${numero}', 'CuriosityBot-MD', true]]`;
+      return `global.animxscans = [['${numero}', 'Zycryx-BOT', true]]`;
     }
   );
   writeFileSync(configPath, updatedConfigData);
@@ -360,12 +377,14 @@ async function connectionUpdate(update) {
       console.log(`Error: ${e.message}`);
     }
   }
+  /*
   try {
     await waitTwoMinutes();
     await conn.groupAcceptInvite(global.nna2);
   } catch (error) {
     console.log("Error al aceptar invitación de grupo:", error);
   }
+  */
 }
 
 process.on("uncaughtException", console.error);
