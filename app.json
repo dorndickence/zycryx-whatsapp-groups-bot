@@ -1,7 +1,14 @@
 {
-  "name": "curiosity",
+  "name": "zycryx",
   "description": "Customizable WhatsApp Bot",
-  "repository": "https://github.com/Azami19/Curiosity-MD",
-  "logo": "https://i.ibb.co/dG6rm49/fg-logo.png",
-  "keywords": ["bot", "whatsapp", "whatsapp-bot", "rpg", "curiosity-bot-md", "games-wabot"]
+  "repository": "https://github.com/ZycryxCreative/zycryx-whatsapp-groups-bot.git",
+  "logo": "https://i.ibb.co/Kxwm6yS/zycryx-profile.jpg",
+  "keywords": [
+    "bot",
+    "whatsapp",
+    "whatsapp-bot",
+    "rpg",
+    "zycryx-bot-md",
+    "games-wabot"
+  ]
 }

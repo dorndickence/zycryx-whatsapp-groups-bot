@@ -1,33 +1,47 @@
 let handler = async (m, { conn, isROwner, text }) => {
-    const delay = time => new Promise(res => setTimeout(res, time))
-    let getGroups = await conn.groupFetchAllParticipating()
-    let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])
-    let anu = groups.map(v => v.id)
-    var pesan = m.quoted && m.quoted.text ? m.quoted.text : text
-    if(!pesan) throw '*⚠️ INGRESE EL TEXTO QUE QUIERE QUE TRÁMITE*'
-   // m.reply(`*📑 MENSAJE ENVIADO A ${anu.length} GRUPO/S*\n\n*🔔 NOTA: ES POSIBLE QUE NO SE ENVIE A TODOS LOS CHATS`)
-    for (let i of anu) {
-    await delay(500)
-    conn.relayMessage(i, 
-{ liveLocationMessage: {
-  degreesLatitude: 35.685506276233525,
-  degreesLongitude: 139.75270667105852,
-  accuracyInMeters: 0,
-degreesClockwiseFromMagneticNorth: 2,
-caption: '––––––『 *BROADCAST* 』––––––\n\n' + pesan + '\n\n*💌 ESTO ES UN COMUNICADO OFICIAL*',
-sequenceNumber: 2,
-timeOffset: 3,
-contextInfo: m,
-}}, {}).catch(_ => _)
-    }
-  m.reply(`*📑 MENSAJE ENVIADO A ${anu.length} GRUPO/S*\n\n*🔔 NOTA: ES POSIBLE QUE NO SE ENVIE A TODOS LOS CHATS*`)
-}
-handler.help = ['broadcastgroup', 'bcgc'].map(v => v + ' <teks>')
-handler.tags = ['owner']
-handler.command = /^(broadcast|bc)(group|grup|gc)$/i
-handler.owner = true
+  const delay = (time) => new Promise((res) => setTimeout(res, time));
+  let getGroups = await conn.groupFetchAllParticipating();
+  let groups = Object.entries(getGroups)
+    .slice(0)
+    .map((entry) => entry[1]);
+  let anu = groups.map((v) => v.id);
+  var pesan = m.quoted && m.quoted.text ? m.quoted.text : text;
+  if (!pesan) throw "*⚠️ INGRESE EL TEXTO QUE QUIERE QUE TRÁMITE*";
+  // m.reply(`*📑 MENSAJE ENVIADO A ${anu.length} GRUPO/S*\n\n*🔔 NOTA: ES POSIBLE QUE NO SE ENVIE A TODOS LOS CHATS`)
+  for (let i of anu) {
+    await delay(500);
+    conn
+      .relayMessage(
+        i,
+        {
+          liveLocationMessage: {
+            degreesLatitude: 35.685506276233525,
+            degreesLongitude: 139.75270667105852,
+            accuracyInMeters: 0,
+            degreesClockwiseFromMagneticNorth: 2,
+            caption:
+              "––––––『 *BROADCAST* 』––––––\n\n" +
+              pesan +
+              "\n\n*💌 ESTO ES UN COMUNICADO OFICIAL*",
+            sequenceNumber: 2,
+            timeOffset: 3,
+            contextInfo: m,
+          },
+        },
+        {}
+      )
+      .catch((_) => _);
+  }
+  m.reply(
+    `*📑 MENSAJE ENVIADO A ${anu.length} GRUPO/S*\n\n*🔔 NOTA: ES POSIBLE QUE NO SE ENVIE A TODOS LOS CHATS*`
+  );
+};
+handler.help = ["broadcastgroup", "bcgc"].map((v) => v + " <teks>");
+handler.tags = ["owner"];
+handler.command = /^(broadcast|bc)(group|grup|gc)$/i;
+handler.owner = true;
 
-export default handler
+export default handler;
 
 /*import fs from 'fs'
 let handler = async (m, { conn, text } ) => {  

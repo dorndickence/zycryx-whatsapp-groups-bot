@@ -1,1 +1,3 @@
-#ZYCRYX CHAT BOT
+# `Zyx Bot`
+
+Bot en desarrollo

@@ -1,32 +1,45 @@
-import fs from 'fs'
-let handler = async (m, { conn, text } ) => {  
-const delay = time => new Promise(res => setTimeout(res, time))
-let chats = Object.entries(conn.chats).filter(([jid, chat]) => !jid.endsWith('@g.us') && chat.isChats).map(v => v[0])
-if(!text) throw '*⚠️ INGRESE EL TEXTO QUE QUIERE QUE TRÁMITE*'
-let cc = text ? m : m.quoted ? await m.getQuotedObj() : false || m
-let teks = text ? text : cc.text
-for (let i of chats) {
-await delay(500)
-conn.relayMessage(i, 
-{ liveLocationMessage: {
-  degreesLatitude: 35.685506276233525,
-  degreesLongitude: 139.75270667105852,
-  accuracyInMeters: 0,
-degreesClockwiseFromMagneticNorth: 2,
-caption: '––––––『 *BROADCAST* 』––––––\n\n' + teks + '\n\n*💌 ESTE ES UN COMUNICADO OFICIAL*',
-sequenceNumber: 2,
-timeOffset: 3,
-contextInfo: m,
-}}, {}).catch(_ => _)
-    }
-m.reply(`*📑 MENSAJE ENVIADO A ${chats.length} CHATS PRIVADOS*\n\n*🔔 NOTA: ES POSIBLE QUE NO SE ENVIÉ A TODOS LOS CHATS*`)
-}
-handler.help = ['broadcastchats', 'bcchats'].map(v => v + ' <teks>')
-handler.tags = ['owner']
-handler.command = /^(broadcastchats?|bcc(hats?)?)$/i
-handler.rowner = true
-export default handler
-
+import fs from "fs";
+let handler = async (m, { conn, text }) => {
+  const delay = (time) => new Promise((res) => setTimeout(res, time));
+  let chats = Object.entries(conn.chats)
+    .filter(([jid, chat]) => !jid.endsWith("@g.us") && chat.isChats)
+    .map((v) => v[0]);
+  if (!text) throw "*⚠️ INGRESE EL TEXTO QUE QUIERE QUE TRÁMITE*";
+  let cc = text ? m : m.quoted ? await m.getQuotedObj() : false || m;
+  let teks = text ? text : cc.text;
+  for (let i of chats) {
+    await delay(500);
+    conn
+      .relayMessage(
+        i,
+        {
+          liveLocationMessage: {
+            degreesLatitude: 35.685506276233525,
+            degreesLongitude: 139.75270667105852,
+            accuracyInMeters: 0,
+            degreesClockwiseFromMagneticNorth: 2,
+            caption:
+              "––––––『 *BROADCAST* 』––––––\n\n" +
+              teks +
+              "\n\n*💌 ESTE ES UN COMUNICADO OFICIAL*",
+            sequenceNumber: 2,
+            timeOffset: 3,
+            contextInfo: m,
+          },
+        },
+        {}
+      )
+      .catch((_) => _);
+  }
+  m.reply(
+    `*📑 MENSAJE ENVIADO A ${chats.length} CHATS PRIVADOS*\n\n*🔔 NOTA: ES POSIBLE QUE NO SE ENVIÉ A TODOS LOS CHATS*`
+  );
+};
+handler.help = ["broadcastchats", "bcchats"].map((v) => v + " <teks>");
+handler.tags = ["owner"];
+handler.command = /^(broadcastchats?|bcc(hats?)?)$/i;
+handler.rowner = true;
+export default handler;
 
 /*import fs from 'fs'
 let handler = async (m, { conn, text } ) => {  
@@ -47,4 +60,3 @@ handler.tags = ['owner']
 handler.command = /^(broadcastchats?|bcc(hats?)?)$/i
 handler.rowner = true
 export default handler*/
-
