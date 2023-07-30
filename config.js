@@ -1,193 +1,100 @@
-import { watchFile, unwatchFile } from "fs";
-import chalk from "chalk";
-import fs from "fs";
-import cheerio from "cheerio";
-import fetch from "node-fetch";
-import axios from "axios";
-import path, { join } from "path";
-import { fileURLToPath, pathToFileURL } from "url";
-import moment from "moment-timezone";
-import { platform } from "process";
-global.__filename = function filename(
-  pathURL = import.meta.url,
-  rmPrefix = platform !== "win32"
-) {
-  return rmPrefix
-    ? /file:\/\/\//.test(pathURL)
-      ? fileURLToPath(pathURL)
-      : pathURL
-    : pathToFileURL(pathURL).toString();
-};
-global.__dirname = function dirname(pathURL) {
-  return path.dirname(global.__filename(pathURL, true));
-};
-global.__require = function require(dir = import.meta.url) {
-  return createRequire(dir);
-};
-const __dirname = global.__dirname(import.meta.url);
+import {watchFile, unwatchFile} from 'fs';
+import chalk from 'chalk';
+import {fileURLToPath} from 'url';
+import fs from 'fs';
+import cheerio from 'cheerio';
+import fetch from 'node-fetch';
+import axios from 'axios';
+import moment from 'moment-timezone';
 
-//⊱ ━━━━━.⋅ Owner ⋅.━━━━ ⊰
 global.owner = [
-  ["51955715506", "Julius Sauco", true],
-  ["51937265467", "Zycryx Business", true],
-  ["51904264739", "JS Cibersecurity", true],
-  ["51904354571", "Zyx Chat Bot", true],
+  ['5219992095479', '👑 Mystic - Creador 👑', true],
+  ['50499698072', '💫 Mystic - Collaborator 1 💫', true],
+  ['51940617554', '💫 Mystic - Collaborator 2 💫', true],
+  ['51996089079', '💫 Mystic - Collaborator 3 💫', true],
+  ['5218442286089', '💫 Mystic - Collaborator 4 💫', true],
+  ['50246028932', '💫 Mystic - Collaborator 5 💫', true],
+  ['5212411719888', '💫 Mystic - Collaborator 6 💫', true],
+  ['5215533827255', '💫 Mystic - Collaborator 7 💫', false],
+  ['59895555511', '💫 Mystic - Collaborator 8 💫', true],
+  ['593968585283'],
+  ['5219993404349'],
+  ['584125778026'],
+  ['5219991402134'],
+  ['5492266466080'],
+  ['5219996125657'],
+  ['5492266613038'],
+  ['5218442114446'],
+  ['59894808483'],
+  ['595992611272'],
 ];
-//━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
-global.animxscans = [["51955715506"]];
-global.suittag = ["51955715506"];
+global.suittag = ['5219993404349'];
+global.prems = ['51995386439'];
+global.reportes_solicitudes = ['5219992095479'];
+
+global.packname = '(☞ﾟ∀ﾟ)☞';
+global.author = '★𝚃𝚑𝚎 𝙼𝚢𝚜𝚝𝚒𝚌 - 𝙱𝚘𝚝★';
+global.wm = '★𝚃𝚑𝚎 𝙼𝚢𝚜𝚝𝚒𝚌 - 𝙱𝚘𝚝★';
+global.igfg = '★𝚃𝚑𝚎 𝙼𝚢𝚜𝚝𝚒𝚌 - 𝙱𝚘𝚝★';
+global.wait = '*[❗] Ƈᴀʀɢᴀɴᴅᴏ, ᴀɢᴜᴀʀᴅᴇ ᴜɴ ᴍᴏᴍᴇɴᴛᴏ...*';
+
+global.imagen1 = fs.readFileSync('./Menu2.jpg');
+global.imagen2 = fs.readFileSync('./src/nuevobot.jpg');
+global.imagen3 = fs.readFileSync('./src/Pre Bot Publi.png');
+global.imagen4 = fs.readFileSync('./Menu.png');
+global.imagen5 = fs.readFileSync('./src/+18.jpg');
+
 global.mods = [];
-global.prems = [];
 
-global.keysZens = [
-  "LuOlangNgentot",
-  "c2459db922",
-  "37CC845916",
-  "6fb0eff124",
-  "hdiiofficial",
-  "fiktod",
-  "BF39D349845E",
-  "675e34de8a",
-  "0b917b905e6f",
+//* *******Tiempo***************
+global.d = new Date(new Date + 3600000);
+global.locale = 'es';
+global.dia = d.toLocaleDateString(locale, {weekday: 'long'});
+global.fecha = d.toLocaleDateString('es', {day: 'numeric', month: 'numeric', year: 'numeric'});
+global.mes = d.toLocaleDateString('es', {month: 'long'});
+global.año = d.toLocaleDateString('es', {year: 'numeric'});
+global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true});
+//* ****************************
+global.wm2 = `▸ ${dia} ${fecha}\n▸ 𝚃𝚑𝚎 𝙼𝚢𝚜𝚝𝚒𝚌 - 𝙱𝚘𝚝`;
+global.gt = '★𝚃𝚑𝚎 𝙼𝚢𝚜𝚝𝚒𝚌 - 𝙱𝚘𝚝★';
+global.mysticbot = '★𝚃𝚑𝚎 𝙼𝚢𝚜𝚝𝚒𝚌 - 𝙱𝚘𝚝★';
+global.md = 'https://github.com/BrunoSobrino/TheMystic-Bot-MD';
+global.mysticbot = 'https://github.com/BrunoSobrino/TheMystic-Bot-MD';
+global.waitt = '*[❗] Ƈᴀʀɢᴀɴᴅᴏ, ᴀɢᴜᴀʀᴅᴇ ᴜɴ ᴍᴏᴍᴇɴᴛᴏ...*';
+global.waittt = '*[❗] Ƈᴀʀɢᴀɴᴅᴏ, ᴀɢᴜᴀʀᴅᴇ ᴜɴ ᴍᴏᴍᴇɴᴛᴏ...*';
+global.waitttt = '*[❗] Ƈᴀʀɢᴀɴᴅᴏ, ᴀɢᴜᴀʀᴅᴇ ᴜɴ ᴍᴏᴍᴇɴᴛᴏ...*';
+global.nomorown = '5219993404349';
+global.pdoc = ['application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/msword', 'application/pdf', 'text/rtf'];
+global.cmenut = '❖––––––『';
+global.cmenub = '┊✦ ';
+global.cmenuf = '╰━═┅═━––––––๑\n';
+global.cmenua = '\n⌕ ❙❘❙❙❘❙❚❙❘❙❙❚❙❘❙❘❙❚❙❘❙❙❚❙❘❙❙❘❙❚❙❘ ⌕\n     ';
+global.dmenut = '*❖─┅──┅〈*';
+global.dmenub = '*┊»*';
+global.dmenub2 = '*┊*';
+global.dmenuf = '*╰┅────────┅✦*';
+global.htjava = '⫹⫺';
+global.htki = '*⭑•̩̩͙⊱•••• ☪*';
+global.htka = '*☪ ••••̩̩͙⊰•⭑*';
+global.comienzo = '• • ◕◕════';
+global.fin = '════◕◕ • •';
+global.botdate = `⫹⫺ Date :  ${moment.tz('America/Los_Angeles').format('DD/MM/YY')}`; // Asia/Jakarta
+global.bottime = `𝗧 𝗜 𝗠 𝗘 : ${moment.tz('America/Los_Angeles').format('HH:mm:ss')}`;// America/Los_Angeles
+global.fgif = {key: {participant: '0@s.whatsapp.net'}, message: {'videoMessage': {'title': wm, 'h': `Hmm`, 'seconds': '999999999', 'gifPlayback': 'true', 'caption': bottime, 'jpegThumbnail': fs.readFileSync('./Menu.png')}}};
+global.multiplier = 99;
+global.flaaa = [
+  'https://flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=water-logo&script=water-logo&fontsize=90&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextColor=%23000&shadowGlowColor=%23000&backgroundColor=%23000&text=',
+  'https://flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=crafts-logo&fontsize=90&doScale=true&scaleWidth=800&scaleHeight=500&text=',
+  'https://flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=amped-logo&doScale=true&scaleWidth=800&scaleHeight=500&text=',
+  'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&text=',
+  'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&fillColor1Color=%23f2aa4c&fillColor2Color=%23f2aa4c&fillColor3Color=%23f2aa4c&fillColor4Color=%23f2aa4c&fillColor5Color=%23f2aa4c&fillColor6Color=%23f2aa4c&fillColor7Color=%23f2aa4c&fillColor8Color=%23f2aa4c&fillColor9Color=%23f2aa4c&fillColor10Color=%23f2aa4c&fillOutlineColor=%23f2aa4c&fillOutline2Color=%23f2aa4c&backgroundColor=%23101820&text=',
 ];
-global.keysxxx = keysZens[Math.floor(keysZens.length * Math.random())];
-global.keysxteammm = [
-  "29d4b59a4aa687ca",
-  "5LTV57azwaid7dXfz5fzJu",
-  "cb15ed422c71a2fb",
-  "5bd33b276d41d6b4",
-  "HIRO",
-  "kurrxd09",
-  "ebb6251cc00f9c63",
-];
-global.keysxteam = keysxteammm[Math.floor(keysxteammm.length * Math.random())];
-global.keysneoxrrr = ["5VC9rvNx", "cfALv5"];
-global.keysneoxr = keysneoxrrr[Math.floor(keysneoxrrr.length * Math.random())];
-global.lolkeysapi = ["BrunoSobrino"];
-global.itsrose = ["4b146102c4d500809da9d1ff"];
+//* ************************
 
-(global.APIs = {
-  // API Prefix.
-
-  //⊱ ━━━━━.⋅ name: 'https://website' ⋅.━━━━ ⊰
-  amel: "https://melcanz.com",
-  bx: "https://bx-hunter.herokuapp.com",
-  nrtm: "https://nurutomo.herokuapp.com",
-  xteam: "https://api.xteam.xyz",
-  nzcha: "http://nzcha-apii.herokuapp.com",
-  bg: "http://bochil.ddns.net",
-  fdci: "https://api.fdci.se",
-  dzx: "https://api.dhamzxploit.my.id",
-  bsbt: "https://bsbt-api-rest.herokuapp.com",
-  zahir: "https://zahirr-web.herokuapp.com",
-  zeks: "https://api.zeks.me",
-  hardianto: "https://hardianto-chan.herokuapp.com",
-  pencarikode: "https://pencarikode.xyz",
-  LeysCoder: "https://leyscoders-api.herokuapp.com",
-  adiisus: "https://adiixyzapi.herokuapp.com",
-  lol: "https://api.lolhuman.xyz",
-  pencarikode: "https://pencarikode.xyz",
-  Velgrynd: "https://velgrynd.herokuapp.com",
-  rey: "https://server-api-rey.herokuapp.com",
-  hardianto: "http://hardianto-chan.herokuapp.com",
-  shadow: "https://api.reysekha.xyz",
-  apialc: "https://api-alc.herokuapp.com",
-  botstyle: "https://botstyle-api.herokuapp.com",
-  neoxr: "https://neoxr-api.herokuapp.com",
-  ana: "https://anabotofc.herokuapp.com/",
-  kanx: "https://kannxapi.herokuapp.com/",
-  dhnjing: "https://dhnjing.xyz",
-}),
-  (global.APIKeys = {
-    // APIKey Here
-    //⊱ ━━━━━.⋅ 'https://website': 'apikey' ⋅.━━━━ ⊰
-    "https://api-alc.herokuapp.com": "ConfuMods",
-    "https://api.reysekha.xyz": "apirey",
-    "https://melcanz.com": "F3bOrWzY",
-    "https://bx-hunter.herokuapp.com": "Ikyy69",
-    "https://api.xteam.xyz": "5bd33b276d41d6b4",
-    "https://zahirr-web.herokuapp.com": "zahirgans",
-    "https://bsbt-api-rest.herokuapp.com": "benniismael",
-    "https://api.zeks.me": "apivinz",
-    "https://hardianto-chan.herokuapp.com": "hardianto",
-    "https://pencarikode.xyz": "pais",
-    "https://api-fgmods.ddns.net": "fg-dylux",
-    "https://leyscoders-api.herokuapp.com": "MIMINGANZ",
-    "https://server-api-rey.herokuapp.com": "apirey",
-    "https://api.lolhuman.xyz": "9b817532fadff8fc7cb86862",
-    "https://botstyle-api.herokuapp.com": "Eyar749L",
-    "https://neoxr-api.herokuapp.com": "yntkts",
-    "https://anabotofc.herokuapp.com/": "AnaBot",
-  });
-
-// IMAGENES
-global.raiz = "./";
-global.aniD = "ANI_MX_SCANS/";
-global.dirP = raiz; //+aniD
-global.media = raiz + "media/";
-global.jadibts = join(__dirname, "jadibts/");
-global.imagen1 = fs.readFileSync(join(dirP, `storage/menus/Menu1.jpg`));
-global.imagen2 = fs.readFileSync(join(dirP, `src/nuevobot.jpg`));
-global.imagen3 = fs.readFileSync(join(dirP, `src/Pre Bot Publi.png`));
-global.imagen4 = fs.readFileSync(join(dirP, `storage/menus/Menu2.jpg`));
-global.stickerAMX = fs.readFileSync(join(dirP, `src/Curiosity.webp`));
-global.imagen5 = fs.readFileSync("./storage/menus/Menu1.jpg");
-global.imagen6 = fs.readFileSync("./storage/menus/Menu2.jpg");
-global.imagen7 = fs.readFileSync("./storage/menus/Menu3.jpg");
-global.imagen8 = fs.readFileSync("./storage/menus/Menu4.jpg");
-global.img = "https://i.ibb.co/Kxwm6yS/zycryx-profile.jpg";
-
-//⊱ ━━━━━.⋅ Sticker WM ⋅.━━━━ ⊰
-global.packname = "Zycryx-ChatBot.js";
-global.author = "@1.0.0";
-
-//━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
-
-//⊱ ━━━━━.⋅ Información ⋅.━━━━ ⊰
-
-global.wm = "『 Zycryx-ChatBot 』";
-global.azami = "Julius Sauco";
-global.cb = "Zycryx-ChatBot";
-global.wait = "*⌛ _Cargando..._ ▬▬▬▭*";
-global.vs = "1.0.0";
-global.yt = "https://www.youtube.com/channel/UCU8UXTuSP-iLlYVqh6wJ6oA";
-global.ig = "https://www.instagram.com/olympus.community/";
-global.md = "https://github.com/ZycryxCreative/zycryx-whatsapp-groups-bot";
-global.nn = "https://chat.whatsapp.com/H6LQ5C2WBwPA0PfD3lqIKN";
-global.nnn = "https://chat.whatsapp.com/CsRv1irW7cX6x8J1xja4jm";
-global.nna2 = "H6LQ5C2WBwPA0PfD3lqIKN";
-global.nna1 = "CsRv1irW7cX6x8J1xja4jm";
-global.paypal = "https://paypal.me/ElizabethMuller";
-global.rwait = "⌛";
-global.dmoji = "🤭";
-global.done = "✅";
-global.error = "❌";
-global.xmoji = "🔥";
-
-//━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
-
-global.multiplier = 100; // Cuanto más alto, más difícil subir de nivel | The higher, The harder levelup
-
-global.rpg = {
-  emoticon(string) {
-    string = string.toLowerCase();
-    let emot = {
-      level: "🏆",
-      limit: "💎",
-      exp: "🕹️",
-    };
-    let results = Object.keys(emot)
-      .map((v) => [v, new RegExp(v, "gi")])
-      .filter((v) => v[1].test(string));
-    if (!results.length) return "";
-    else return emot[results[0][0]];
-  },
-};
-
-let file = fileURLToPath(import.meta.url);
+const file = fileURLToPath(import.meta.url);
 watchFile(file, () => {
   unwatchFile(file);
-  console.log(chalk.redBright("Update 'config.js'"));
+  console.log(chalk.redBright('Update \'config.js\''));
   import(`${file}?update=${Date.now()}`);
 });
