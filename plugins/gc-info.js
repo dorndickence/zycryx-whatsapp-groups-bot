@@ -1,10 +1,28 @@
 const handler = async (m, {conn, participants, groupMetadata}) => {
-  const pp = await conn.profilePictureUrl(m.chat, 'image').catch((_) => null) || './src/avatar_contact.png';
-  const {antiToxic, antiTraba, antiviewonce, isBanned, welcome, detect, sWelcome, sBye, sPromote, sDemote, antiLink, antiLink2, modohorny, autosticker, modoadmin, audios, delete: del} = global.db.data.chats[m.chat];
-  const groupAdmins = participants.filter((p) => p.admin);
-  const listAdmin = groupAdmins.map((v, i) => `${i + 1}. @${v.id.split('@')[0]}`).join('\n');
-  const owner = groupMetadata.owner || groupAdmins.find((p) => p.admin === 'superadmin')?.id || m.chat.split`-`[0] + '@s.whatsapp.net';
-  const text = `*「 𝐈𝐍𝐅𝐎𝐑𝐌𝐀𝐂𝐈𝐎𝐍 𝐃𝐄𝐋 𝐆𝐑𝐔𝐏𝐎 」*\n
+    const pp = await conn.profilePictureUrl(m.chat, 'image').catch((_) => null) || './src/avatar_contact.png';
+    const {
+        antiToxic,
+        antiTraba,
+        antiviewonce,
+        isBanned,
+        welcome,
+        detect,
+        sWelcome,
+        sBye,
+        sPromote,
+        sDemote,
+        antiLink,
+        antiLink2,
+        modohorny,
+        autosticker,
+        modoadmin,
+        audios,
+        delete: del
+    } = global.db.data.chats[m.chat];
+    const groupAdmins = participants.filter((p) => p.admin);
+    const listAdmin = groupAdmins.map((v, i) => `${i + 1}. @${v.id.split('@')[0]}`).join('\n');
+    const owner = groupMetadata.owner || groupAdmins.find((p) => p.admin === 'superadmin')?.id || m.chat.split`-`[0] + '@s.whatsapp.net';
+    const text = `*「 𝐈𝐍𝐅𝐎𝐑𝐌𝐀𝐂𝐈𝐎𝐍 𝐃𝐄𝐋 𝐆𝐑𝐔𝐏𝐎 」*\n
 *𝙸𝙳𝙴𝙽𝚃𝙸𝙵𝙸𝙲𝙰𝙲𝙸𝙾𝙽 𝙳𝙴𝙻 𝙶𝚁𝚄𝙿𝙾:* 
 ${groupMetadata.id}
 
@@ -36,7 +54,7 @@ ${listAdmin}
 —◉ 𝙰𝙽𝚃𝙸𝚃𝚁𝙰𝙱𝙰: ${antiTraba ? '✅' : '❌'} 
 —◉ 𝙼𝙾𝙳𝙾𝙰𝙳𝙼𝙸𝙽: ${modoadmin ? '✅' : '❌'} 
 `.trim();
-  conn.sendFile(m.chat, pp, 'error.jpg', text, m, false, {mentions: [...groupAdmins.map((v) => v.id), owner]});
+    conn.sendFile(m.chat, pp, 'error.jpg', text, m, false, {mentions: [...groupAdmins.map((v) => v.id), owner]});
 };
 handler.help = ['infogrup'];
 handler.tags = ['group'];
