@@ -1180,7 +1180,7 @@ export async function handler(chatUpdate) {
                             const messageNumber = user.bannedMessageCount + 1;
                             const messageText = `❰ ⚠️ ❱ *ESTAS BANEADO/A* ❰ ⚠️ ❱\nAviso ${messageNumber}/3 (${messageNumber} de 3)${user.bannedReason ? `\n*Motivo:* *${user.bannedReason}*` : ''}
 *👉 Puedes contactar a la propietaria del Bot si crees que se trata de un error (TENER PRUEBAS) para tratar el motivo de tú desbaneo*
-👉 wa.me/5219996125657
+👉 wa.me/51955715506
 `.trim();
 
                             // m.reply(messageText);
@@ -1586,7 +1586,7 @@ global.dfail = (type, m, conn) => {
                     title: '[ ⚠ ] 𝐀𝐕𝐈𝐒𝐎 - 𝐀𝐋𝐄𝐑𝐓𝐀',
                     body: 'ᴛʜᴇ ᴍʏsᴛɪᴄ - ʙᴏᴛ',
                     thumbnail: imagen1,
-                    sourceUrl: 'https://github.com/BrunoSobrino/TheMystic-Bot-MD'
+                    sourceUrl: 'https://github.com/ZycryxCreative/zycryx-whatsapp-groups-bot.git'
                 }
             }
         }

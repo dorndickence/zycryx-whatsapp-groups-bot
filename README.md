@@ -101,7 +101,7 @@ ESCRIBE LOS SIGUIENTES COMANDOS UNO POR UNO:
 ESCRIBE LOS SIGUIENTES COMANDOS UNO POR UNO:
 > cd 
 > cd Mystic-termux
-> rm -rf MysticSession
+> rm -rf session
 > npm start
 ```
 

@@ -4,36 +4,20 @@ import {fileURLToPath} from 'url';
 import moment from 'moment-timezone';
 
 global.owner = [
-    ['5219992095479', '👑 Mystic - Creador 👑', true],
-    ['50499698072', '💫 Mystic - Collaborator 1 💫', true],
-    ['51940617554', '💫 Mystic - Collaborator 2 💫', true],
-    ['51996089079', '💫 Mystic - Collaborator 3 💫', true],
-    ['5218442286089', '💫 Mystic - Collaborator 4 💫', true],
-    ['50246028932', '💫 Mystic - Collaborator 5 💫', true],
-    ['5212411719888', '💫 Mystic - Collaborator 6 💫', true],
-    ['5215533827255', '💫 Mystic - Collaborator 7 💫', false],
-    ['59895555511', '💫 Mystic - Collaborator 8 💫', true],
-    ['593968585283'],
-    ['5219993404349'],
-    ['584125778026'],
-    ['5219991402134'],
-    ['5492266466080'],
-    ['5219996125657'],
-    ['5492266613038'],
-    ['5218442114446'],
-    ['59894808483'],
-    ['595992611272'],
+    ['51955715506', 'Julius Sauco 👤', true],
+    ['51904264739', 'Amadeus Systems ☠️', true],
+    ['51904354571', 'Zycryx Group Bot 🤖', true]
 ];
 
-global.suittag = ['5219993404349'];
-global.prems = ['51995386439'];
-global.reportes_solicitudes = ['5219992095479'];
+global.suittag = ['51904264739'];
+global.prems = ['51904264739'];
+global.reportes_solicitudes = ['51904264739'];
 
-global.packname = '(☞ﾟ∀ﾟ)☞';
-global.author = '★𝚃𝚑𝚎 𝙼𝚢𝚜𝚝𝚒𝚌 - 𝙱𝚘𝚝★';
-global.wm = '★𝚃𝚑𝚎 𝙼𝚢𝚜𝚝𝚒𝚌 - 𝙱𝚘𝚝★';
-global.igfg = '★𝚃𝚑𝚎 𝙼𝚢𝚜𝚝𝚒𝚌 - 𝙱𝚘𝚝★';
-global.wait = '*[❗] Ƈᴀʀɢᴀɴᴅᴏ, ᴀɢᴜᴀʀᴅᴇ ᴜɴ ᴍᴏᴍᴇɴᴛᴏ...*';
+global.packname = 'Zycryx';
+global.author = 'Julius Sauco';
+global.wm = 'Zycryx Chat Bot';
+global.igfg = 'Zycryx Chat Bot';
+global.wait = '*[❗] Cargando, espere un momento...*';
 
 global.imagen1 = fs.readFileSync('./Menu2.jpg');
 global.imagen2 = fs.readFileSync('./src/nuevobot.jpg');
@@ -52,14 +36,14 @@ global.mes = d.toLocaleDateString('es', {month: 'long'});
 global.año = d.toLocaleDateString('es', {year: 'numeric'});
 global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true});
 //* ****************************
-global.wm2 = `▸ ${dia} ${fecha}\n▸ 𝚃𝚑𝚎 𝙼𝚢𝚜𝚝𝚒𝚌 - 𝙱𝚘𝚝`;
-global.gt = '★𝚃𝚑𝚎 𝙼𝚢𝚜𝚝𝚒𝚌 - 𝙱𝚘𝚝★';
-global.mysticbot = '★𝚃𝚑𝚎 𝙼𝚢𝚜𝚝𝚒𝚌 - 𝙱𝚘𝚝★';
-global.md = 'https://github.com/BrunoSobrino/TheMystic-Bot-MD';
-global.mysticbot = 'https://github.com/BrunoSobrino/TheMystic-Bot-MD';
-global.waitt = '*[❗] Ƈᴀʀɢᴀɴᴅᴏ, ᴀɢᴜᴀʀᴅᴇ ᴜɴ ᴍᴏᴍᴇɴᴛᴏ...*';
-global.waittt = '*[❗] Ƈᴀʀɢᴀɴᴅᴏ, ᴀɢᴜᴀʀᴅᴇ ᴜɴ ᴍᴏᴍᴇɴᴛᴏ...*';
-global.waitttt = '*[❗] Ƈᴀʀɢᴀɴᴅᴏ, ᴀɢᴜᴀʀᴅᴇ ᴜɴ ᴍᴏᴍᴇɴᴛᴏ...*';
+global.wm2 = `▸ ${dia} ${fecha}\n▸ Zycryx Chat Bot`;
+global.gt = 'Zycryx Chat Bot';
+global.mysticbot = 'Zycryx Chat Bot';
+global.md = 'https://github.com/ZycryxCreative/zycryx-whatsapp-groups-bot.git';
+global.mysticbot = 'https://github.com/ZycryxCreative/zycryx-whatsapp-groups-bot.git';
+global.waitt = '*[❗] Cargando, espere un momento...*';
+global.waittt = '*[❗] Cargando, espere un momento...*';
+global.waitttt = '*[❗] Cargando, espere un momento...*';
 global.nomorown = '5219993404349';
 global.pdoc = ['application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/msword', 'application/pdf', 'text/rtf'];
 global.cmenut = '❖––––––『';

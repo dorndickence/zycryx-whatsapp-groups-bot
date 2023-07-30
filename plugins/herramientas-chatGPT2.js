@@ -33,7 +33,7 @@ const handler = async (m, {conn, text, usedPrefix, command}) => {
                 'model': 'gpt-3.5-turbo',
                 'messages': [{
                     role: 'system',
-                    content: 'Actuaras como un Bot de WhatsApp el cual fue creado por BrunoSobrino, tu seras The Mystic - Bot'
+                    content: 'Actuaras como un Bot de WhatsApp el cual fue creado por Julius Sauco, tu seras Zycryx Chat Bot'
                 }, ...chgptdb]
             })
         };
@@ -97,7 +97,7 @@ const handler = async (m, {conn, text, usedPrefix, command}) => {
                         } catch {
                             try {
                                 conn.sendPresenceUpdate('composing', m.chat);
-                                const syms1 = `Actuaras como un Bot de WhatsApp el cual fue creado por BrunoSobrino, tu seras The Mystic - Bot.`;
+                                const syms1 = `Actuaras como un Bot de WhatsApp el cual fue creado por Julius Sauco, tu seras Zycryx Chat Bot.`;
                                 const fgapi1 = await fetch(`https://api-fgmods.ddns.net/api/info/openai?text=${text}&symsg=${syms1}&apikey=fg-dylux`);
                                 const fgjson1 = await fgapi1.json();
                                 if (fgjson1.result == 'error' || fgjson1.result == '' || !fgjson1.result) return XD; // causar error undefined para lanzar msg de error

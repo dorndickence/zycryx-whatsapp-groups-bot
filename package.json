@@ -1,5 +1,5 @@
 {
-  "name": "TheMystic-Bot-MD",
+  "name": "zycryx-whatsapp-groups-bot",
   "version": "1.0.0",
   "description": "Subs. al canal de YT The Shadow Borkers - TEAM",
   "main": "index.js",
@@ -16,16 +16,16 @@
     "eslint": "eslint .",
     "eslintfix": "eslint --fix ."
   },
-  "homepage": "https://github.com/BrunoSobrino/TheMystic-Bot-MD",
+  "homepage": "https://github.com/ZycryxCreative/zycryx-whatsapp-groups-bot.git",
   "author": {
-    "name": "BrunoSobrino"
+    "name": "JuliusSauco"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BrunoSobrino/TheMystic-Bot-MD.git"
+    "url": "git+https://github.com/ZycryxCreative/zycryx-whatsapp-groups-bot.git"
   },
   "bugs": {
-    "url": "https://github.com/BrunoSobrino/TheMystic-Bot-MD/issues"
+    "url": "https://github.com/ZycryxCreative/zycryx-whatsapp-groups-bot/issues"
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
