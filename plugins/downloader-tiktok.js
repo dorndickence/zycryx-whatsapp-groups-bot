@@ -20,7 +20,7 @@ const handler = async (m, {conn, text, args, usedPrefix, command}) => {
                         title: 'ᴛʜᴇ ᴍʏsᴛɪᴄ - ʙᴏᴛ',
                         body: null,
                         thumbnail: imagen1,
-                        sourceUrl: 'https://github.com/BrunoSobrino/TheMystic-Bot-MD'
+                        sourceUrl: 'https://github.com/ZycryxCreative/zycryx-whatsapp-groups-bot.git'
                     }, mentionedJid: [m.sender]
                 }
             }

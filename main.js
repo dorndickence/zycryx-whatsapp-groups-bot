@@ -112,7 +112,7 @@ loadChatgptDB();
 
 /* ------------------------------------------------*/
 
-global.authFile = `MysticSession`;
+global.authFile = `session`;
 const {state, saveState, saveCreds} = await useMultiFileAuthState(global.authFile);
 const msgRetryCounterMap = (MessageRetryMap) => {
 };
@@ -152,7 +152,7 @@ const connectionOptions = {
         creds: state.creds,
         keys: makeCacheableSignalKeyStore(state.keys, pino({level: 'silent'})),
     },
-    browser: ['MysticBot', 'Safari', '9.7.0'],
+    browser: ['Zyx Bot', 'Safari', '9.7.0'],
     version,
     defaultQueryTimeoutMs: undefined,
 };
@@ -172,25 +172,6 @@ if (!opts['test']) {
 
 if (opts['server']) (await import('./server.js')).default(global.conn, PORT);
 
-
-/* Y ese fue el momazo mas bueno del mundo
-        Aunque no dudara tan solo un segundo
-        Mas no me arrepiento de haberme reido
-        Por que la grasa es un sentimiento
-        Y ese fue el momazo mas bueno del mundo
-        Aunque no dudara tan solo un segundo
-        que me arrepiento de ser un grasoso
-        Por que la grasa es un sentimiento
-        - El waza 👻👻👻👻 (Aiden)            */
-
-/* Yo tambien se hacer momazos Aiden...
-      ahi te va el ajuste de los borrados
-      inteligentes de las sesiones y de los sub-bot
-      By (Rey Endymion 👺👍🏼) */
-
-/* ninguno es mejor que tilin god
-atte: sk1d*/
-
 function clearTmp() {
     const tmp = [tmpdir(), join(__dirname, './tmp')];
     const filename = [];
@@ -204,13 +185,13 @@ function clearTmp() {
 
 function purgeSession() {
     let prekey = [];
-    const directorio = readdirSync('./MysticSession');
+    const directorio = readdirSync('./session');
     const filesFolderPreKeys = directorio.filter((file) => {
         return file.startsWith('pre-key-');
     });
     prekey = [...prekey, ...filesFolderPreKeys];
     filesFolderPreKeys.forEach((files) => {
-        unlinkSync(`./MysticSession/${files}`);
+        unlinkSync(`./session/${files}`);
     });
 }
 
@@ -232,7 +213,7 @@ function purgeSessionSB() {
 }
 
 function purgeOldFiles() {
-    const directories = ['./MysticSession/', './jadibts/'];
+    const directories = ['./session/', './jadibts/'];
     const oneHourAgo = Date.now() - (60 * 60 * 1000);
     directories.forEach((dir) => {
         readdirSync(dir, (err, files) => {

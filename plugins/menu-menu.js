@@ -24,11 +24,9 @@ const handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, is
 ║≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡║
 ║➤ *𝗛ola, ${taguser}*
 ║≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡║
-║➤ *Owner:* Bruno Sobrino
-║➤ *Numero:* wa.me/5219992095479
-║➤ *Bot ofc:* wa.me/5219991402134
-║➤ *Bot ofc 2:* wa.me/5219993404349
-║➤ *PayPal:* https://www.paypal.me/TheShadowBrokers133
+║➤ *Owner:* Julius Sauco
+║➤ *Numero:* wa.me/51955715506
+║➤ *Bot ofc:* wa.me/51904354571
 ║➤ *Fecha:* ${date}
 ║➤ *Tiempo activo:* ${uptime}
 ║➤ *Usuarios:* ${rtotalreg}
@@ -41,7 +39,7 @@ const handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, is
 ┣ *🧰 Experiencia:* ${exp}
 ┣ *⚓ Rango:* ${role}
 ┣ *💎 Diamantes:* ${limit}
-┣ *👾 MysticCoins:* ${money}
+┣ *👾 ZyxCoins:* ${money}
 ┣ *🪙 Tokens:* ${joincount}
 ┣ *🎟️ Premium:* ${user.premiumTime > 0 ? '✅' : (isPrems ? '✅' : '❌') || ''}
 ┗━━━━━━━━━━━━━━━━┛
@@ -355,7 +353,6 @@ ${readMore}
 ┣ ඬ⃟ 👾 _${usedPrefix}sakura_
 ┣ ඬ⃟ 👾 _${usedPrefix}cosplay_
 ┗━━━━━━━━━━━━━━━━┛
-
 
 ┏━━━━━━━━━━━━━━━━┓
 ┃ *< ℂ𝕆𝕄𝔸ℕ𝔻𝕆𝕊 +𝟙𝟠 />*

@@ -52,7 +52,7 @@ const handler = async (m, {conn, text, participants, isOwner, isAdmin}) => {
                             mentionedJid: users,
                             externalAdReply: {
                                 thumbnail: imagen1,
-                                sourceUrl: 'https://github.com/BrunoSobrino/TheMystic-Bot-MD'
+                                sourceUrl: 'https://github.com/ZycryxCreative/zycryx-whatsapp-groups-bot.git'
                             }
                         }
                     }
