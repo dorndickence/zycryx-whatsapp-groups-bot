@@ -1,78 +1,31 @@
-const cooldown = 10800000;
-let ro = 1500;
-let d = 20;
-
-let handler = async (m, { conn, text, usedPrefix, command, groupMetadata }) => {
-  let time = global.db.data.users[m.sender].lastrob + 1800000;
-  if (new Date() - global.db.data.users[m.sender].lastrob < 1800000)
-    throw `*⏰ ESPERA ${msToTime(time - new Date())} PARA VOLVER A ROBAR*`;
-  if (!text)
-    return m.reply(
-      `*➳ ETIQUETA AL USUARIO QUE QUIERE SAQUEAR*\n\n*EJEMPLO:* ${
-        usedPrefix + command
-      } @tɑg>.`
-    );
-  try {
-    let _user = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted.sender;
-    if (!_user in global.db.data.users)
-      return m.reply(`➳ El usuɑrio no estά registrɑdo en lɑ bɑse de dɑtos!`);
-    if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender);
-    if (!m.mentionedJid.length) m.mentionedJid.push(m.sender);
-    if (global.db.data.users[_user] == undefined)
-      return m.reply(`➳ El usuɑrio no estά registrɑdo en lɑ bɑse de dɑtos!`);
-    let uuser = global.db.data.users[_user];
-    let exp = Math.floor(Math.random() * ro);
-    let diamond = Math.floor(Math.random() * d);
-    let raid = `*ʜᴀs sᴀǫᴜᴇᴀᴅᴏ ⚔️ ᴀ @${_user.split("@s.whatsapp.net")[0]}*
-◦ ᴇxᴘ: ${exp}
-◦ ᴅɪᴀᴍᴀɴᴛᴇ: ${diamond}
-
-ʀᴏʙᴀᴅᴏ ᴘᴏʀ: @${m.sender.split("@")[0]}`;
-    if (uuser.diamond <= 5)
-      return m.reply("El usuario no tiene suficientes recursos!");
-    if (uuser.exp <= 10)
-      return m.reply(`El usuario no tiene suficientes recursos!`);
-    global.db.data.users[_user].exp -= exp * 1;
-    global.db.data.users[_user].diamond -= diamond * 1;
-    global.db.data.users[m.sender].exp += exp * 1;
-    global.db.data.users[m.sender].diamond += diamond * 1;
-    await await conn.sendMessage(
-      m.chat,
-      { text: raid, mentions: [_user, m.sender] },
-      { quoted: m }
-    );
-    /*conn.sendMessage(
-    _user,
-    {
-      text: `*❕@${m.sender.split("@")[0]} TE ACABA DE ROBAR!*`,
-      mentions: [m.sender],
-    },
-    { quoted: m }
-  );*/
-    global.db.data.users[m.sender].lastrob = new Date() * 1;
-  } catch {
-    await m.reply(
-      `*🚓🚓🚓No le pudiste robar por que a este usuario los protege la policía 👮(AFK)*`
-    );
-  }
+const ro = 3000;
+const handler = async (m, {conn, usedPrefix, command}) => {
+  const time = global.db.data.users[m.sender].lastrob + 7200000;
+  if (new Date - global.db.data.users[m.sender].lastrob < 7200000) throw `*⏱️¡Hey! Espera ${msToTime(time - new Date())} para volver a robar*`;
+  let who;
+  if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : false;
+  else who = m.chat;
+  if (!who) throw `*[❗] Etiqueta a alguien para robar.*`;
+  if (!(who in global.db.data.users)) throw `*[❗] El usuario no se encuentra en mi base de datos.*`;
+  const users = global.db.data.users[who];
+  const rob = Math.floor(Math.random() * ro);
+  if (users.exp < rob) return m.reply(`😔 @${who.split`@`[0]} tiene menos de *${ro} xp*\nNo robes a un pobre v":`, null, {mentions: [who]});
+  global.db.data.users[m.sender].exp += rob;
+  global.db.data.users[who].exp -= rob;
+  m.reply(`*‣ Robaste ${rob} XP a @${who.split`@`[0]}*`, null, {mentions: [who]});
+  global.db.data.users[m.sender].lastrob = new Date * 1;
 };
-
-handler.help = ["saquear [@user]"];
-handler.tags = ["rpg"];
-handler.command = /^(raidear|saquear|rob|robar)$/i;
-handler.group = true;
-handler.cooldown = cooldown;
+handler.help = ['rob'];
+handler.tags = ['econ'];
+handler.command = ['robar', 'rob'];
 export default handler;
-
 function msToTime(duration) {
-  var milliseconds = parseInt((duration % 1000) / 100),
-    seconds = Math.floor((duration / 1000) % 60),
-    minutes = Math.floor((duration / (1000 * 60)) % 60),
-    hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
-
-  hours = hours < 10 ? "0" + hours : hours;
-  minutes = minutes < 10 ? "0" + minutes : minutes;
-  seconds = seconds < 10 ? "0" + seconds : seconds;
-
-  return hours + " Hora(s) " + minutes + " Minuto(s)";
+  const milliseconds = parseInt((duration % 1000) / 100);
+  let seconds = Math.floor((duration / 1000) % 60);
+  let minutes = Math.floor((duration / (1000 * 60)) % 60);
+  let hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+  hours = (hours < 10) ? '0' + hours : hours;
+  minutes = (minutes < 10) ? '0' + minutes : minutes;
+  seconds = (seconds < 10) ? '0' + seconds : seconds;
+  return hours + ' Hora(s) ' + minutes + ' Minuto(s)';
 }

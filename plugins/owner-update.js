@@ -1,20 +1,23 @@
-import { execSync } from "child_process";
-let handler = async (m, { conn, text }) => {
-  await m.reply(`*🚀 C A R G A N D O*`);
+import {execSync} from 'child_process';
+
+const handler = async (m, {conn, text}) => {
   try {
     if (global.conn.user.jid == conn.user.jid) {
-      let stdout = execSync("git pull" + (m.fromMe && text ? " " + text : ""));
-      await await await conn.reply(m.chat, stdout.toString(), m);
+      const stdout = execSync('git pull' + (m.fromMe && text ? ' ' + text : ''));
+      conn.reply(m.chat, stdout.toString(), m);
     }
-  } catch {
-    var update = execSync(
-      "git remote set-url origin https://github.com/Azami19/CuriosityBot-MD1.git && git pull"
-    );
-    await await await m.reply(update.toString());
+  } catch (error) {
+    console.error(error);
+    let errorMessage = 'An error occurred while executing the command.';
+    if (error.message) {
+      errorMessage += '\nError message: ' + error.message;
+    }
+    await conn.reply(m.chat, errorMessage, m);
   }
 };
-handler.help = ["update"];
-handler.tags = ["owner"];
+
+handler.help = ['update'];
+handler.tags = ['owner'];
 handler.command = /^update|actualizar$/i;
 handler.rowner = true;
 export default handler;
