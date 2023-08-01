@@ -131,7 +131,7 @@ dist
 
 sessions/
 data.store.json
-database.json
+# database.json
 package-lock.json
 
 # IDES
