@@ -1,10 +1,10 @@
 {
-  "name": "Zycryx Chat Bot",
-  "website": "https://github.com/ZycryxCreative",
+  "name": "TheMystic-Bot-MD",
+  "website": "https://github.com/BrunoSobrino",
   "description": "Subscribete a The Shadow Borkers - Bot (≧▽≦)",
-  "repository": "https://github.com/ZycryxCreative/zycryx-whatsapp-groups-bot",
-  "logo": "https://raw.githubusercontent.com/ZycryxCreative/zycryx-whatsapp-groups-bot/main/src/pictures/heroku-icon.jpg",
-  "success_url": "https://github.com/ZycryxCreative/zycryx-whatsapp-groups-bot",
+  "repository": "https://github.com/BrunoSobrino/TheMystic-Bot-MD",
+  "logo": "https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/pictures/heroku-icon.jpg",
+  "success_url": "https://github.com/BrunoSobrino/TheMystic-Bot-MD",
   "keywords": [
     "nodejs",
     "heroku",
@@ -19,8 +19,10 @@
     "md",
     "whatsappbot",
     "oficial",
-    "whatsapp-md"
-  ],
+    "whatsapp-md",
+    "themysticbot",
+    "themystic-bot",
+    "themystic-bot-md"],
   "image": "heroku/nodejs",
   "buildpacks": [
     {
@@ -31,6 +33,6 @@
     },
     {
       "url": "https://github.com/bogini/heroku-buildpack-graphicsmagick"
-    }
-  ]
+    }    
+ ]
 }
