@@ -1,5 +1,5 @@
 const handler = async (m, {conn}) => {
-    m.reply(global.terminos);
+  m.reply(global.terminos);
 };
 handler.customPrefix = /términos y condiciones y privacidad|terminosycondicionesyprivacidad|terminosycondiciones|terminos y condiciones y privacidad|terminos y condiciones|terminos y condiciones|terminos de uso|Terminos de uso|Terminó se uso|términos de uso|Términos de uso|Términos y condiciones/i;
 handler.command = new RegExp;
@@ -49,8 +49,8 @@ _- Si en algún momento recibe un mensaje del numero del Bot y no es un comando 
 *⁉️ Te quedaron dudas?*
 _- Si todavía tienes alguna duda o reclamo de lo mencionado aqui o referente al Bot, contáctame a mi numero personal al cual estaré respondiendo lo antes posible para brindarte una solución y/o hacerme responsable de alguna reclamación_ 
 
-> wa.me/51955715506
-> Amadeus Systems - Julius Amadeus Sauco
-> Correo electronico: zycryx@gmailcom
+> wa.me/5219992095479
+> Bruno Sobrino 
+> Correo electronico: theshadowbrokers133@gmailcom
 
-*∆ Zycryx Chat Bot ∆*`;
+*∆ THE MYSTIC - BOT - MD ∆*`;
